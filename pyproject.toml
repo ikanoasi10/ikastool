@@ -10,6 +10,8 @@ python = ">=3.8.0,<3.9"
 flask = "^3.0.0"
 disnake = "2.8.1"
 sqlitedict = "^2.1.0"
+pytz = "^2023.3.post1"
+requests = "^2.31.0"
 
 [build-system]
 requires = ["poetry-core"]
