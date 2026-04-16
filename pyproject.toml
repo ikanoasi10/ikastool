@@ -3,7 +3,7 @@ name = "ikastool"
 version = "0.1.0"
 authors = []
 description = ""
-readme = "readme.md"
+readme = "README.md"
 requires-python = ">=3.8.0,<3.9"
 dependencies = [
     "flask >= 3.0.0",
