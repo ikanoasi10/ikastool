@@ -1,15 +1,16 @@
 import os
+import json
 import disnake
 from disnake.ext import commands
 from sqlitedict import SqliteDict
 from dotenv import load_dotenv
-import json
-import defaultcfg
+from . import defaultcfg
 from pytz import timezone
 from datetime import datetime as dt
-from server import keep_alive
+from .server import keep_alive
 load_dotenv()
-db = SqliteDict('db.sqlite', autocommit=True)
+db_path = '/app/db.sqlite'
+db = SqliteDict(db_path, autocommit=True)
 
 # .envからTOKENを取ってくる
 TOKEN = os.getenv("TOKEN")
@@ -59,17 +60,17 @@ async def on_ready():
 @bot.event
 async def on_guild_join(guild):
     db[str(guild.id)] = json.dumps(defaultcfg.CFG_DEFAULT)
-    print(f" db[{guild.id}]を作成")
+    print(f"db[{guild.id}]を作成")
 
 
 # Guildごとにスラッシュコマンドの最終時刻をdbに記録
 @bot.event
 async def on_slash_command(inter):
     if str(inter.guild.id) in db.keys():
-        cfg = json.loads(db[str(inter.guild_id)])
+        cfg = json.loads(db[str(inter.guild.id)])
         if "last_executed" in cfg:
             cfg["last_executed"] = inter.created_at.strftime("%Y-%m-%d %H:%M:%S")
-            db[str(inter.guild_id)] = json.dumps(cfg)
+            db[str(inter.guild.id)] = json.dumps(cfg)
 
     # 一定期間コマンド未使用で削除
     for guild_id in db.keys():

@@ -1,3 +1,4 @@
+import os
 import disnake
 from disnake.ext import commands
 from typing import Optional
@@ -8,7 +9,8 @@ import datetime
 import re
 import traceback
 
-db = SqliteDict("db.sqlite3", autocommit=True)
+db_path = '/app/db.sqlite'
+db = SqliteDict(db_path, autocommit=True)
 
 
 # 募集投稿を行う

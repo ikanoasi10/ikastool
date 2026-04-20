@@ -1,8 +1,10 @@
+import os
 from disnake.ext import commands
 from sqlitedict import SqliteDict
 import json
 
-db = SqliteDict("db.sqlite3", autocommit=True)
+db_path = '/app/db.sqlite'
+db = SqliteDict(db_path, autocommit=True)
 
 
 class DettachChannelCommand(commands.Cog):
