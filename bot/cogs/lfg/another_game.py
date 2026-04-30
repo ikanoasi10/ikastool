@@ -1,6 +1,6 @@
 import disnake
 from disnake.ext import commands
-from .modules.create_lfg import create_lfg
+from cogs.lfg.modules.create_lfg import create_lfg
 
 
 class AnotherGameCommand(commands.Cog):
@@ -53,6 +53,3 @@ class AnotherGameCommand(commands.Cog):
 
 def setup(bot: commands.Bot):
     bot.add_cog(AnotherGameCommand(bot))
-
-
-

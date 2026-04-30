@@ -1,6 +1,6 @@
 import disnake
 from disnake.ext import commands
-from .modules.create_lfg import create_lfg
+from cogs.lfg.modules.create_lfg import create_lfg
 
 class SalmonCommand(commands.Cog):
     def __init__(self, bot: commands.Bot):

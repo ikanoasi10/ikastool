@@ -4,10 +4,10 @@ import disnake
 from disnake.ext import commands
 from sqlitedict import SqliteDict
 from dotenv import load_dotenv
-from . import defaultcfg
+import defaultcfg
 from pytz import timezone
 from datetime import datetime as dt
-from .server import keep_alive
+from server import keep_alive
 load_dotenv()
 db_path = '/app/db.sqlite'
 db = SqliteDict(db_path, autocommit=True)

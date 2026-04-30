@@ -3,7 +3,7 @@ import disnake
 from disnake.ext import commands
 from sqlitedict import SqliteDict
 import json
-from .. import defaultcfg
+import defaultcfg
 
 db_path = '/app/db.sqlite'
 db = SqliteDict(db_path, autocommit=True)
