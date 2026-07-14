@@ -3,7 +3,7 @@ from disnake.ext import commands
 from sqlitedict import SqliteDict
 import json
 
-db_path = '/app/db.sqlite'
+db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'db.sqlite')
 db = SqliteDict(db_path, autocommit=True)
 
 

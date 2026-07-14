@@ -9,7 +9,7 @@ from pytz import timezone
 from datetime import datetime as dt
 from server import keep_alive
 load_dotenv()
-db_path = '/app/db.sqlite'
+db_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'db.sqlite')
 db = SqliteDict(db_path, autocommit=True)
 
 # .envからTOKENを取ってくる
@@ -42,6 +42,7 @@ bot.load_extension("cogs.lfg.event")
 bot.load_extension("cogs.lfg.plzsp")
 bot.load_extension("cogs.lfg.private")
 bot.load_extension("cogs.lfg.salmon")
+bot.load_extension("cogs.lfg.raiders")
 bot.load_extension("cogs.lfg.splatfest")
 bot.load_extension("cogs.lfg.turf_war")
 bot.load_extension("cogs.lfg.tableturf")
