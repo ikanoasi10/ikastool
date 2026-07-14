@@ -20,6 +20,7 @@ class HelpCommand(commands.Cog):
           - /プラべ
           - /ナワバリ
           - /しゃけ
+          - /レイダース
           - /ナワバトラー
           - /フェス
           - /対抗戦
